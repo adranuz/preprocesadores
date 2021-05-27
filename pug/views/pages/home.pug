@@ -1,0 +1,42 @@
+extend ../layout/template.pug 
+
+block content
+ 
+
+  //- Declarando mixing
+  mixin caja(cajatitulo)
+    .caja
+      .caja__imagen: img(src= image)
+      .caja__contenido
+        h3 
+          |#{cajatitulo}
+        p 
+          |Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+
+  mixin intro
+    section.intro
+      //- div.intro__imagen
+      //-   img(src="https://image.flaticon.com/icons/png/512/29/29072.png")
+      //- solo funciona cuando solo hay un elemento hijo
+      .intro__imagen: img(src= image)
+      .intro__contenido
+        h2= titulo
+          //- p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, asperiores est ex numquam labore. 
+          //- p. 
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Accusamus, asperiores est ex numquam labore reprehenderit 
+            obcaecati fuga recusandae quidem quia perspiciatis deserunt 
+            non expedita fugiat esse ullam maiores aut fugit.
+        p 
+          | Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+          | Accusamus, asperiores est ex numquam labore reprehenderit 
+          | obcaecati fuga recusandae quidem quia perspiciatis 
+          span deserunt non expedita fugiat esse ullam maiores aut fugit.
+        a.boton #{buttons[1]}
+    
+  +intro
+  main.contenido 
+    //- llamando mixing 
+    +caja(subtitulos[0])
+    +caja(subtitulos[1])
+    +caja(subtitulos[2])

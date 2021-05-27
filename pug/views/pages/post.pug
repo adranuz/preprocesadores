@@ -1,0 +1,25 @@
+extend ../layout/template.pug 
+
+block content
+  main.contenido.post
+    .intro
+      h3 Menu
+      ul
+        each enlace in enlaces
+          li
+            h4= enlace 
+    article
+      .intro__contenido
+        h2= titulo
+          //- p Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, asperiores est ex numquam labore. 
+          //- p. 
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+            Accusamus, asperiores est ex numquam labore reprehenderit 
+            obcaecati fuga recusandae quidem quia perspiciatis deserunt 
+            non expedita fugiat esse ullam maiores aut fugit.
+        p 
+          | hhLorem ipsum, dolor sit amet consectetur adipisicing elit. 
+          | Accusamus, asperiores est ex numquam labore reprehenderit 
+          | obcaecati fuga recujkksandae quidem quia perspiciatis 
+          span deserunt non expedita fugiat esse ullam maiores aut fugit.
+        a.boton #{buttons[1]}
