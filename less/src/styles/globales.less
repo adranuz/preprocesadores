@@ -1,13 +1,68 @@
+// variables
+@color-primario: #333333;
+@color-claro: #ffffff;
+@color-secundario: #8841da;
+@color-variacion: #012179;
+@fuente1: "Lato", sans-serif;
+@fuente2: 'Oswald', sans-serif;
+@fuente-base: 18px;
+
+
+
+// mixin
+.sombra-caja {
+	box-shadow: 0px 5px 15px 0px fade(@color-primario, 50%);
+}
+.font-title {
+	font-family: @fuente2;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.fuente(@font-size){
+	font-size: @font-size;
+	line-height: @font-size + 10%;
+}
+
+// Estilos globales
 *{
 	box-sizing: border-box;
 }
+
 body {
 	margin: 0;
-	font-family: 'Lato', sans-serif;
+	font-family: @fuente1;
+	line-height: @fuente-base + 10%;
+	padding-bottom: 1rem;
+	.fuente(@fuente-base);
 }
 
 h1,h2,h3 {
-	font-family: 'Oswald', sans-serif;
+	font-family: @fuente2;
 	text-transform: uppercase;
 	margin: 0;
+	.font-title;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+    background-color: @color-primario;
+    color: @color-claro;
+  }
+  .intro {
+    background-color: @color-secundario;
+  }
+  .articulo--principal h2 {
+    color: @color-secundario;
+  }
+  .caja {
+    background-color: @color-secundario;
+		&__contenido {
+			background: @color-secundario;
+
+		}
+		&__categoria {
+			color: @color-claro !important;
+		}
+
+  }
 }
