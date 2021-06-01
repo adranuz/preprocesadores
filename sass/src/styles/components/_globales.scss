@@ -1,0 +1,98 @@
+// Variables
+$fuente1: "Lato", sans-serif;
+$fuente2: "Oswald", sans-serif;
+$color-primario: #333333;
+$color-claro: #fff;
+$color-secundario: #8841da;
+$color-variacion: #3f579a;
+$dark-mode: true;
+
+// Mixin - bloque de estilos
+@mixin caja {
+  border-radius: 20px;
+  box-shadow: 0px 20px 33px 0px rgba($color-primario, 0.5);
+  color: $color-primario;
+  background: $color-claro;
+}
+
+@mixin articulos-modo {
+  @if $dark-mode == true {
+    background: $color-primario;
+    color: $color-claro;
+  } @else {
+    background: $color-claro;
+    color: $color-primario;
+  }
+}
+
+@mixin perfil-modo {
+  @if $dark-mode == true {
+    background: $color-claro;
+    color: $color-secundario;
+    .perfil__boton {
+      background-color: get-opacity($color-variacion, .8);
+    }
+    > h3 {
+      color: get-opacity($color-variacion, 0.8);
+    }
+    .perfil__minibio h3 {
+      color: get-opacity($color-variacion, 0.8);
+    }
+  } @else {
+    background: $color-secundario;
+    color: $color-primario;
+    > h3 {
+      color: get-opacity($color-claro, 0.5);
+    }
+    .perfil__minibio h3 {
+      color: get-opacity($color-claro, 0.5);
+    }
+    h2 {
+      color: $color-claro;
+    }
+    .galeria h2 {
+      color: $color-primario;
+    }
+    .ubicacion--perfil h2 {
+      color: $color-primario;
+
+    }
+  }
+}
+
+// Mixin con condicional
+@mixin titulos($fuente) {
+  @if $fuente == $fuente1 {
+    font-family: $fuente1;
+  } @else {
+    font-family: $fuente2;
+    text-transform: uppercase;
+  }
+}
+
+@function get-opacity($color, $nivel) {
+  @return rgba($color, $nivel);
+}
+
+// $header se refiere a las key del objeto, $size al valor
+@each $header, $size in (h1: 30px, h2: 25px, h3: 20px) {
+  #{$header} {
+    font-size: $size;
+    margin: 0;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  @include titulos($fuente1);
+}
+
+main {
+  display: flex;
+  width: 100%;
+  min-height: 100vh;
+}
