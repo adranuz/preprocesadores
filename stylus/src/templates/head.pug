@@ -7,16 +7,24 @@ mixin caja(imagen, category, title, summary)
 			p=summary
 		+estadistica
 
+mixin caja-noticia(category, title, summary)
+	.caja
+		.caja__contenido
+			span.caja__categoria=category
+			h3=title
+			p=summary
+		+estadistica
+
 mixin estadistica
 	.estadistica--articulos: ul
 		li
-			i.fas.fa-share
+			i.fas.fa-share .
 			span 275
 		li
-			i.fas.fa-eye
+			i.fas.fa-eye .
 			span 275
 		li
-			i.fas.fa-comment-alt
+			i.fas.fa-comment-alt .
 			span 12
 
 doctype html

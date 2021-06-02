@@ -21,3 +21,16 @@ Repositorio para probar algunos preprocesadores de CSS y HTML
     - Variables
     - Funciones (fade)
     - mixin (paquetes de estilos)
+    
+  ### Sass - CSS
+  Para correr el proyecto de Less deberas: 
+    - Entrar a la carpeta llamada less
+    - Corre el comando `npm i`
+    - Correr el comando `npm run build` para produccion o `npm run serve` para desarrollo y levantar el server.
+  [Documentacion de Less](https://sass-lang.com/)
+  Temas que se vieron:
+    - Variables
+    - Imports
+    - Extends (copiar estilos a otro selector)
+    - Mixins 
+    - Funciones
